@@ -2,15 +2,16 @@
 
 require_once('MenuMaker.php');
 
-(new Bootstrapper)->boot();
+try {
 
-class Bootstrapper
-{
+	if(empty($_POST)) {
 
-	public function boot()
-	{
-		$menuMaker = (new MenuMaker())->makeMenu($_POST);
-
-
+		throw new Exception('This page can only be reached from a POST request');
 	}
+		
+	$menuMaker = (new MenuMaker())->makeMenu($_POST);
+
+} catch(Exception $e) {
+
+	echo $e->getMessage();
 }

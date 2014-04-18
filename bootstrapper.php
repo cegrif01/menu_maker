@@ -19,3 +19,9 @@ try {
 
 	echo $e->getMessage();
 }
+
+function pp($x, $die=true)
+{
+    echo "<pre>".print_r($x, true)."</pre>";
+    if ($die) die;
+}

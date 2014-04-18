@@ -5,12 +5,17 @@ class Validator
 
 	public function validate(array $input)
 	{
-		foreach($input as $field => $value) {
+		
+		foreach($input['menu'] as $value) {
+			
+			foreach($value as $key => $field) {
 
-			if(empty($value)) {
+				if(empty($field) || is_null($field)) {
 
-				throw new Exception("$field was empty");
+					throw new Exception("$key was empty");
+				}
 			}
+			
 		}
 	}
 }

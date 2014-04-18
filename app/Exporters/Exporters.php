@@ -29,6 +29,6 @@ class CsvExporter implements ExportableInterface
 	
 	public function export(array $data, $exportTo = "")
 	{
-		exit(var_dump($data));
+		pp($data);
 	}
 }

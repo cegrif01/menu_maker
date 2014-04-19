@@ -20,7 +20,7 @@ class HtmlExporter implements ExportableInterface
 	
 	public function export(array $data, $exportTo = "")
 	{
-		return "Html Exporter";
+		require('html_menu.php');
 	}
 }
 

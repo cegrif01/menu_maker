@@ -13,7 +13,7 @@ try {
 		throw new Exception('This page can only be reached from a POST request');
 	}
 
-	$menuMaker = (new MenuMaker(new CsvExporter, new Validator, new Emailer))->makeMenu($_POST);
+	$menuMaker = (new MenuMaker(new HtmlExporter, new Validator, new Emailer))->makeMenu($_POST);
 
 } catch(Exception $e) {
 

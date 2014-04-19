@@ -15,6 +15,7 @@ class MenuMaker
 
 			$this->validator->validate($input);
 			$data = $this->exporter->export($input);
+			$this->emailer->send($data);
 
 		} catch(Exception $e) {
 

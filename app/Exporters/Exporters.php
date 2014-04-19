@@ -29,6 +29,22 @@ class CsvExporter implements ExportableInterface
 	
 	public function export(array $data, $exportTo = "")
 	{
-		pp($data);
+
+		$csv_file = 'file.csv';
+		header( "Content-Type: text/csv;charset=utf-8" );
+		header( "Content-Disposition: attachment;filename=\"$csv_file\"" );
+		header("Pragma: no-cache");
+		header("Expires: 0");
+
+		$fp = fopen('php://output', 'w');
+
+		array_unshift($data['menu'], array_keys($data['menu'][0]));
+		foreach($data['menu'] as $menu_item) {
+
+			fputcsv($fp, $menu_item);
+		}
+
+		fclose($fp);
+		exit;
 	}
 }

@@ -14,6 +14,11 @@ class MenuMaker
 
 							throw new Exception("$key was empty");
 						}
+
+						if($key == "price" && !is_numeric(substr($field, 1))) {
+							
+							throw new Exception("$field is not an number");
+						}
 					}
 			
 				}

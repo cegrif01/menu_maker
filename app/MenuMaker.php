@@ -5,7 +5,6 @@ class MenuMaker
 	public function makeMenu()
 	{
 		try {
-
 				foreach($_POST['menu'] as $value) {
 			
 					foreach($value as $key => $field) {
@@ -15,7 +14,7 @@ class MenuMaker
 							throw new Exception("$key was empty");
 						}
 
-						if($key == "price" && !is_numeric(substr($field, 1))) {
+						if($key == "price" && !is_numeric($field)) {
 							
 							throw new Exception("$field is not an number");
 						}

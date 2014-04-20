@@ -2,26 +2,44 @@
 
 class MenuMaker
 {
-	public function __construct(ExportableInterface $exporter, Validator $validator, Emailer $emailer)
+	public function makeMenu()
 	{
-		$this->exporter = $exporter;
-		$this->validator = $validator;
-		$this->emailer = $emailer;
-	}
+		try {
 
-	public function makeMenu(array $input)
-	{
-		try{
+				foreach($_POST['menu'] as $value) {
+			
+					foreach($value as $key => $field) {
 
-			$this->validator->validate($input);
-			$data = $this->exporter->export($input);
-			$this->emailer->send($data);
+						if(empty($field) || is_null($field)) {
 
-		} catch(Exception $e) {
+							throw new Exception("$key was empty");
+						}
+					}
+			
+				}
 
-			echo $e->getMessage();
+				$csv_file = 'file.csv';
+				header( "Content-Type: text/csv;charset=utf-8" );
+				header( "Content-Disposition: attachment;filename=\"$csv_file\"" );
+				header("Pragma: no-cache");
+				header("Expires: 0");
 
-		}
+				$fp = fopen('php://output', 'w');
+
+				array_unshift($_POST['menu'], array_keys($_POST['menu'][0]));
+				foreach($_POST['menu'] as $menu_item) {
+
+					fputcsv($fp, $menu_item);
+				}
+
+				fclose($fp);
+				die();
+					
+			} catch(Exception $e) {
+
+				echo $e->getMessage();
+
+			}
 		
-	}
+	}// end of makeMenu
 }

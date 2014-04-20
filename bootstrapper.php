@@ -2,10 +2,6 @@
 
 require_once('app/MenuMaker.php');
 
-require_once('app/Exporters/Exporters.php');
-require_once('app/Validators/Validator.php');
-require_once('app/Emailer.php');
-
 try {
 
 	if(empty($_POST)) {
@@ -13,7 +9,8 @@ try {
 		throw new Exception('This page can only be reached from a POST request');
 	}
 
-	$menuMaker = (new MenuMaker(new CsvExporter, new Validator, new Emailer))->makeMenu($_POST);
+	$menuMaker = new MenuMaker;
+	$menuMaker->makeMenu();
 
 } catch(Exception $e) {
 

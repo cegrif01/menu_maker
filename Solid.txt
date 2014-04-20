@@ -8,8 +8,34 @@ The Menu Maker app can be found on github.com/cegrif01/menu_maker.  I have split
 
 The Feature:
 
-The menu app allows a user to add an item name, description, and price for each of their menu items.  Then they can submit their items and a csv file will be downloaded with their menu items.  This may sound like a trivial problem, but I intentionally used a very simple example to drive home the point of the design principles.  My goal is to help you understand the principles rather than how to code something very complicated.  To keep us super focused, I chose not to use a framework or composer.  Again, I want us to be super focused on HOW each of these patterns can enhance your skills a developer.  I'm a huge laravel and composer advocate, but I want to avoid comments and questions related to why something failed when doing a composer install or why artisan isn't loaded.
+The menu app allows a user to add an item name, description, and price for each of their menu items.  Then they can submit their items and a csv file will be downloaded with their menu items.  This may sound like a trivial problem, but I intentionally used a very simple example to drive home the point of the design principles.  My goal is to help you understand the principles rather than how to code something very complicated.  To keep us super focused, I chose not to use a framework or composer.  Again, I want us to be super focused on HOW each of these patterns can enhance your skills a developer.  I'm a huge Laravel and Composer advocate, but I want to avoid comments and questions related to why something failed when doing a composer install or why artisan isn't loaded.
 
 The Anti-pattern:
 
-Let's look at how a beginner to Object Oriented programming might solve this problem.
+Let's look at how a beginner to Object Oriented programming might solve this problem.  You can view the source of the anti-pattern by viewing https://github.com/cegrif01/menu_maker/tree/solid-anti-pattern
+
+index.php
+
+This is a simple view that allows users to add menu items.  For now I just fixed the menu items to post two items.  Later in the series, I will show you the javascript that it takes for a more dynamic design.  Basically the user will be able to press a button and create multiple forms for creating more items.  When I'm designing something for a client or for my company, I normally start with something simple in the view to get the array formatting down.  This allows me to know that my backend code will work with the array structures from the browser or a client like Postman.  Next, let's take a look at the bootstrapper.
+
+
+bootstrapper.php
+
+
+Since our app is so simple, and we aren't using a framework, I just send the post request to a bootstrapper file.  In this file, we throw an Exception if the post array is empty.  If we have contents in the post array—meaning the user has filled out the form and hit submit—a new MenuMaker instance is  instantiated, and we call it's makeMenu method.
+
+Where's the array to pass into makeMenu() method?
+The short answer is that the post array is global.  That means that I can call it from anywhere in my application.  That means that I can do the following in my MenuMaker class:
+
+
+
+
+
+
+
+
+
+If you are cringing at this point, after reading the entire series, come back and read this part again, AND CRINGE!
+
+Let's take a moment and think about the code that's been written at this point.
+

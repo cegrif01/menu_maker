@@ -45,6 +45,6 @@ class CsvExporter implements ExportableInterface
 		}
 
 		fclose($fp);
-		exit;
+		die();
 	}
 }

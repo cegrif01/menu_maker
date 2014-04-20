@@ -1,0 +1,15 @@
+This post will be part 1 of a 5 part series on S.O.L.I.D design principles.  I will use a “Menu Maker” app throughout the course of this lesson series.
+
+The Menu Maker app can be found on github.com/cegrif01/menu_maker.  I have split up each lesson in this series in 3 parts:
+
+1) The feature
+2) Anti-pattern
+3) The Design principle fix
+
+The Feature:
+
+The menu app allows a user to add an item name, description, and price for each of their menu items.  Then they can submit their items and a csv file will be downloaded with their menu items.  This may sound like a trivial problem, but I intentionally used a very simple example to drive home the point of the design principles.  My goal is to help you understand the principles rather than how to code something very complicated.  To keep us super focused, I chose not to use a framework or composer.  Again, I want us to be super focused on HOW each of these patterns can enhance your skills a developer.  I'm a huge laravel and composer advocate, but I want to avoid comments and questions related to why something failed when doing a composer install or why artisan isn't loaded.
+
+The Anti-pattern:
+
+Let's look at how a beginner to Object Oriented programming might solve this problem.

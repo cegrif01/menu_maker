@@ -8,7 +8,7 @@ try {
 
 		throw new Exception('This page can only be reached from a POST request');
 	}
-	pp($_POST);
+	
 	$menuMaker = new MenuMaker;
 	$menuMaker->makeMenu();
 

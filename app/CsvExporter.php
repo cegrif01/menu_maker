@@ -4,7 +4,7 @@ class CsvExporter
 {
 	public function export()
 	{
-		
+		//will download csv file to the location specified by the string
 		$fp = fopen('/home/charles/Downloads/file.csv', 'w');
 		
 		array_unshift($_POST['menu'], array_keys($_POST['menu'][0]));

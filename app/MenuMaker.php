@@ -20,6 +20,5 @@ class MenuMaker
 			echo $e->getMessage();
 
 		}
-
 	}
 }

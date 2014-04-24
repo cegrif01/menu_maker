@@ -2,5 +2,5 @@
 
 interface Exportable
 {
-    public function export();
+    public function export(array $input);
 }

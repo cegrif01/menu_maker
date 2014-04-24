@@ -5,20 +5,20 @@ require('HtmlExporter.php');
 
 class ExporterFactory
 {
-	public static function createExporters()
+	public static function createExporters(array $data)
 	{
 		//by default a CsvExporter will be created
-		if(empty($_POST['export_option'])) {
+		if(empty($data['export_option'])) {
 
 			return array(new CsvExporter);
 		}
 
-		if(in_array('csv', $_POST['export_option'])) {
+		if(in_array('csv', $data['export_option'])) {
 
 			$exporters[] = new CsvExporter;
 		}
 
-		if(in_array('html', $_POST['export_option'])) {
+		if(in_array('html', $data['export_option'])) {
 
 			$exporters[] = new HtmlExporter;
 		}

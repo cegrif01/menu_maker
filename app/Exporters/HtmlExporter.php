@@ -4,8 +4,9 @@ require_once('Exportable.php');
 
 class HtmlExporter implements Exportable
 {
-	public function export()
+	public function export(array $data)
 	{
-		echo "HtmlExporter";
+        require('html_menu.php');
 	}
+
 }

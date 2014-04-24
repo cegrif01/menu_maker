@@ -10,7 +10,7 @@ try {
 	}
 	
 	$menuMaker = new MenuMaker;
-	$menuMaker->makeMenu();
+	$menuMaker->makeMenu(new Validator, $_POST);
 
 } catch(Exception $e) {
 

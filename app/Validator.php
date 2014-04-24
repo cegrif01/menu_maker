@@ -2,9 +2,9 @@
 
 class Validator
 {
-	public function validate()
+	public function validate(array $data)
 	{
-		foreach($_POST['menu'] as $value) {
+		foreach($data['menu'] as $value) {
 	
 			foreach($value as $key => $field) {
 

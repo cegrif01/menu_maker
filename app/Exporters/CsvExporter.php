@@ -18,4 +18,9 @@ class CsvExporter implements Exportable
 
 		fclose($fp);
 	}
+
+    public function email($data, $info)
+    {
+        //just implemented to satisfy an interface
+    }
 }

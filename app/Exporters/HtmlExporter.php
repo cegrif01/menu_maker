@@ -8,4 +8,16 @@ class HtmlExporter implements Exportable
 	{
 		echo "HtmlExporter";
 	}
+
+    public function email($data, $info)
+    {
+
+        if(mail($info['to'], $info['from'], $data['message'], $data['headers'])) {
+
+            return true;
+        }
+
+        return false;
+
+    }
 }

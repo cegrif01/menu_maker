@@ -7,7 +7,7 @@ class CsvExporter implements Exportable
 	public function export()
 	{
 		//will download csv file to the location specified by the string
-		$fp = fopen('/home/charles/Downloads/file.csv', 'w');
+		$fp = fopen('/Users/charles/Sites/menu_maker/file.csv', 'w');
 		
 		array_unshift($_POST['menu'], array_keys($_POST['menu'][0]));
 		foreach($_POST['menu'] as $menu_item) {
@@ -18,9 +18,4 @@ class CsvExporter implements Exportable
 
 		fclose($fp);
 	}
-
-    public function email($data, $info)
-    {
-        //just implemented to satisfy an interface
-    }
 }

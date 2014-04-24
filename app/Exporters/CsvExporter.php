@@ -1,6 +1,8 @@
 <?php
 
-class CsvExporter
+require_once('Exportable.php');
+
+class CsvExporter implements Exportable
 {
 	public function export()
 	{

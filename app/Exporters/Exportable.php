@@ -4,5 +4,5 @@ interface Exportable
 {
     public function export();
 
-    public function email(array $data, array $info);
+    public function email();
 }

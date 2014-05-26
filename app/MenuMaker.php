@@ -16,7 +16,8 @@ class MenuMaker
 
 			foreach($exporters as $exporter) {
 
-				$exporter->export();
+				//$exporter->export();
+				$exporter->email();
 			}
 
 		} catch(Exception $e) {

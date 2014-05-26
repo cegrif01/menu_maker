@@ -10,6 +10,7 @@ class CsvExporter implements Exportable
 		$fp = fopen('/home/charles/Downloads/file.csv', 'w');
 		
 		array_unshift($_POST['menu'], array_keys($_POST['menu'][0]));
+
 		foreach($_POST['menu'] as $menu_item) {
 
 			fputcsv($fp, $menu_item);
@@ -19,7 +20,7 @@ class CsvExporter implements Exportable
 		fclose($fp);
 	}
 
-    public function email($data, $info)
+    public function email()
     {
         //just implemented to satisfy an interface
     }

@@ -14,7 +14,6 @@ class CsvExporter implements Exportable
 		foreach($_POST['menu'] as $menu_item) {
 
 			fputcsv($fp, $menu_item);
-			
 		}
 
 		fclose($fp);

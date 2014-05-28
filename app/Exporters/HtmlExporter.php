@@ -1,8 +1,9 @@
 <?php
 
-require_once('Exportable.php');
+require_once('Contracts/Exportable.php');
+require_once('Contracts/Emailable.php');
 
-class HtmlExporter implements Exportable
+class HtmlExporter implements Exportable, Emailable
 {
 	public function export()
 	{
@@ -55,3 +56,5 @@ class HtmlExporter implements Exportable
         return $message;
     }
 }
+
+?>

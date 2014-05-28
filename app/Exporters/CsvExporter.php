@@ -1,6 +1,6 @@
 <?php
 
-require_once('Exportable.php');
+require_once('Contracts/Exportable.php');
 
 class CsvExporter implements Exportable
 {
@@ -18,9 +18,4 @@ class CsvExporter implements Exportable
 
 		fclose($fp);
 	}
-
-    public function email()
-    {
-        //just implemented to satisfy an interface
-    }
 }

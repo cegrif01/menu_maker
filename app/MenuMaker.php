@@ -1,35 +1,35 @@
 <?php
 
 require('Validator.php');
-require_once('Contracts/Emailable.php');
 require('Exporters/ExporterFactory.php');
+require_once('Contracts/Emailable.php');
 
 class MenuMaker
 {
-	public function makeMenu()
-	{
-		try {
+    public function makeMenu()
+    {
+        try {
 
-			$validator = new Validator;
-			$validator->validate();
+            $validator = new Validator;
+            $validator->validate();
 
-			$exporters = ExporterFactory::createExporters();
+            $exporters = ExporterFactory::createExporters();
 
-			foreach($exporters as $exporter) {
+            foreach($exporters as $exporter) {
 
-				$exporter->export();
-				
+                $exporter->export();
+
                 if($exporter instanceof Emailable) {
 
                     $exporter->email();
                 }
-			}
+            }
 
-		} catch(Exception $e) {
+        } catch(Exception $e) {
 
-			echo $e->getMessage();
-		}
-	}
+            echo $e->getMessage();
+        }
+    }
 }
 
 ?>

@@ -1,21 +1,23 @@
 <?php
 
-require_once('Contracts/Exportable.php');
+require_once('app/Contracts/Exportable.php');
 
 class CsvExporter implements Exportable
 {
-	public function export()
-	{
-		//will download csv file to the location specified by the string
-		$fp = fopen('/home/charles/Downloads/file.csv', 'w');
-		
-		array_unshift($_POST['menu'], array_keys($_POST['menu'][0]));
+    public function export()
+    {
+        //will download csv file to the location specified by the string
+        $fp = fopen('/home/charles/Downloads/file.csv', 'w');
 
-		foreach($_POST['menu'] as $menu_item) {
+        array_unshift($_POST['menu'], array_keys($_POST['menu'][0]));
 
-			fputcsv($fp, $menu_item);
-		}
+        foreach($_POST['menu'] as $menu_item) {
 
-		fclose($fp);
-	}
+            fputcsv($fp, $menu_item);
+        }
+
+        fclose($fp);
+    }
 }
+
+?>

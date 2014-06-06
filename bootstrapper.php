@@ -1,6 +1,7 @@
 <?php
 
 require_once('app/MenuMaker.php');
+require_once('app/MenuValidator.php');
 
 try {
 
@@ -10,7 +11,7 @@ try {
 	}
 	
 	$menuMaker = new MenuMaker;
-	$menuMaker->makeMenu();
+	$menuMaker->makeMenu(new MenuValidator);
 
 } catch(Exception $e) {
 

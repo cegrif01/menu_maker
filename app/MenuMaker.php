@@ -1,16 +1,15 @@
 <?php
 
-require('Validator.php');
-require('Exporters/ExporterFactory.php');
+require_once('Contracts/Validator.php');
+require_once('Exporters/ExporterFactory.php');
 require_once('Contracts/Emailable.php');
 
 class MenuMaker
 {
-    public function makeMenu()
+    public function makeMenu(Validator $validator)
     {
         try {
 
-            $validator = new Validator;
             $validator->validate();
 
             $exporters = ExporterFactory::createExporters();
@@ -31,5 +30,3 @@ class MenuMaker
         }
     }
 }
-
-?>

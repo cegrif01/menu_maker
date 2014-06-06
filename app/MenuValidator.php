@@ -1,6 +1,8 @@
 <?php
 
-class Validator
+require_once('Contracts/Validator.php');
+
+class MenuValidator extends Validator
 {
 	public function validate()
 	{

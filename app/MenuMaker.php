@@ -11,21 +11,21 @@ class MenuMaker
         $this->validator = $validator;
     }
 
-    public function makeMenu()
+    public function makeMenu(array $userInput)
     {
         try {
 
-            $this->validator->validate();
+            $this->validator->validate($userInput);
 
-            $exporters = ExporterFactory::createExporters();
+            $exporters = ExporterFactory::createExporters($userInput);
 
             foreach($exporters as $exporter) {
 
-                $exporter->export();
+                $exporter->export($userInput);
 
                 if($exporter instanceof Emailable) {
 
-                    $exporter->email();
+                    $exporter->email($userInput);
                 }
             }
 

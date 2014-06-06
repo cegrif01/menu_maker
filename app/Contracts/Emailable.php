@@ -2,7 +2,5 @@
 
 interface Emailable
 {
-    public function email();
+    public function email(array $input);
 }
-
-?>

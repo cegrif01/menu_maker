@@ -4,10 +4,10 @@ require_once('Contracts/Validator.php');
 
 class MenuValidator extends Validator
 {
-	public function validate()
+	public function validate(array $input)
 	{
-		foreach($_POST['menu'] as $value) {
-	
+		foreach($input['menu'] as $value) {
+
 			foreach($value as $key => $field) {
 
 				if(empty($field) || is_null($field)) {

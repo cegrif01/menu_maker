@@ -11,7 +11,7 @@ try {
 	}
 	
 	$menuMaker = new MenuMaker(new MenuValidator);
-	$menuMaker->makeMenu();
+	$menuMaker->makeMenu($_POST);
 
 } catch(Exception $e) {
 

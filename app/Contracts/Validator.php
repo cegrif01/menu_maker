@@ -2,5 +2,6 @@
 
 abstract class Validator
 {
-    public abstract function validate();
+    public abstract function validate(array $input);
 }
+

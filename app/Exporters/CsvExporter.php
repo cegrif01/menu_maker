@@ -4,14 +4,16 @@ require_once('app/Contracts/Exportable.php');
 
 class CsvExporter implements Exportable
 {
-    public function export()
+    public function export(array $input)
     {
+        $config = require('config.php');
+
         //will download csv file to the location specified by the string
-        $fp = fopen('/home/charles/Downloads/file.csv', 'w');
+        $fp = fopen($config['csv_file'], 'w');
 
-        array_unshift($_POST['menu'], array_keys($_POST['menu'][0]));
+        array_unshift($input['menu'], array_keys($input['menu'][0]));
 
-        foreach($_POST['menu'] as $menu_item) {
+        foreach($input['menu'] as $menu_item) {
 
             fputcsv($fp, $menu_item);
         }
@@ -19,5 +21,3 @@ class CsvExporter implements Exportable
         fclose($fp);
     }
 }
-
-?>

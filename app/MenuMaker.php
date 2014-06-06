@@ -6,11 +6,16 @@ require_once('Contracts/Emailable.php');
 
 class MenuMaker
 {
-    public function makeMenu(Validator $validator)
+    public function __construct(Validator $validator)
+    {
+        $this->validator = $validator;
+    }
+
+    public function makeMenu()
     {
         try {
 
-            $validator->validate();
+            $this->validator->validate();
 
             $exporters = ExporterFactory::createExporters();
 

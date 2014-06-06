@@ -10,8 +10,8 @@ try {
 		throw new Exception('This page can only be reached from a POST request');
 	}
 	
-	$menuMaker = new MenuMaker;
-	$menuMaker->makeMenu(new MenuValidator);
+	$menuMaker = new MenuMaker(new MenuValidator);
+	$menuMaker->makeMenu();
 
 } catch(Exception $e) {
 
